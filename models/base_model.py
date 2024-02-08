@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 import uuid
-from models import storage
 
 from datetime import datetime
 class BaseModel:
     def __init__(self, *args, **kwargs):
+        from models import storage
         if kwargs:
             #if kwargs is not empty,recreate an instance from dictionary
             for key, value in kwargs.items():
@@ -30,6 +30,7 @@ class BaseModel:
         return "[{}] ({}) {}".format(class_name, self.id,self.__dict__)
 
     def save(self):
+        from models import storage
         """
         updates the public instance attribute updated_at with the
         current datetime
