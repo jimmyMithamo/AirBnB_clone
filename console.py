@@ -4,7 +4,12 @@ import cmd
 from models.base_model import BaseModel
 from models import storage
 from models.engine.file_storage import FileStorage
-
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb)"
@@ -89,6 +94,56 @@ class HBNBCommand(cmd.Cmd):
             return
 
         print(obj_list)
+
+    def do_update(self, arg):
+        args = arg.split()
+
+        if len(args) == 0:
+            print("** class name missing **")
+            return
+        class_name = args[0]
+
+        if class_name not in globals():
+            print("** class doesn't exist **")
+            return
+        if len(args) == 1:
+            print("** instance id missing **")
+            return
+        instance_id = args[1]
+        key = "{}.{}".format(class_name, instance_id)
+
+        if key not in storage.all():
+            print("** no instance found **")
+            return
+        if len(args) == 2:
+            print("** attribute name missing **")
+            return
+        attribute_name = args[2]
+
+        if len(args) == 3:
+            print("** value missing **")
+            return
+        value = args[3]
+
+
+        try:
+            if key in storage.all():
+                instance = storage.all()[key]
+
+                if hasattr(instance, attribute_name):
+                    #check attribute type in the storage
+                    attr_type = type(getattr(instance, attribute_name))
+                    
+                    #update the value
+                    setattr(storage.all()[key], attribute_name, attr_type(value))
+                    storage.save()
+                else:
+                    print("** attribute {} does not exist **".format(attribute_name))
+            else:
+                print("** key not found **")
+
+        except Exception as e:
+            print(" ** an error occured **")
 
 
 
