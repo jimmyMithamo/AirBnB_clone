@@ -40,6 +40,6 @@ class FileStorage:
             for key, value in data.items():
                 class_name, obj_id = key.split('.')
                 if class_name in globals():
-                    class_obj = globals()[class_name]
+                    class_obj = self.__class__mapping[class_name]
                     obj = class_obj(**value)
                     self.__objects[key] = obj
