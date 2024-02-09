@@ -2,21 +2,23 @@
 import uuid
 
 from datetime import datetime
+
+
 class BaseModel:
     def __init__(self, *args, **kwargs):
         from models import storage
         if kwargs:
-            #if kwargs is not empty,recreate an instance from dictionary
+            # if kwargs is not empty,recreate an instance from dictionary
             for key, value in kwargs.items():
                 if key == '__class__':
-                    continue #skip __class__attribute
+                    continue # skip __class__attribute
                 if key in ('created_at', 'updated_at'):
-                    #convert strings to datetime objects
+                    # convert strings to datetime objects
                     if not isinstance(value, datetime):
                         value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 setattr(self, key, value)
         else:
-            #if kwargs is empty create a new instance
+            # if kwargs is empty create a new instance
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
@@ -37,7 +39,7 @@ class BaseModel:
         """
         self.updated_at = datetime.now()
         storage.save()
-        #storage.new(self) 
+        #storage.new(self)
 
     def to_dict(self):
         """
@@ -52,7 +54,7 @@ class BaseModel:
 
         return obj_dict
     """
-    
+
         return {
                 "__class__": self.__class__.__name__,
                 "id": self.id,

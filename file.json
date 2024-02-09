@@ -108,6 +108,7 @@
         "email": null,
         "password": null,
         "first_name": null,
+<<<<<<< HEAD
         "last_name": null,
         "__class__": "User"
     },
@@ -118,7 +119,33 @@
         "email": null,
         "password": null,
         "first_name": null,
+=======
+>>>>>>> 7fb6e7365fee83840d48be4a371c65b7ccec14f2
         "last_name": null,
         "__class__": "User"
+    },
+    "BaseModel.f4fbf377-d31e-432b-b674-d857a49cadc5": {
+        "id": "f4fbf377-d31e-432b-b674-d857a49cadc5",
+        "created_at": "2024-02-09T08:13:58.681533",
+        "updated_at": "2024-02-09T08:13:58.681590",
+        "name": "My First Model",
+        "my_number": 89,
+        "__class__": "BaseModel"
+    },
+    "BaseModel.4b8a9751-56b3-4ddf-8c4a-77a359457dca": {
+        "id": "4b8a9751-56b3-4ddf-8c4a-77a359457dca",
+        "created_at": "2024-02-09T08:16:05.582348",
+        "updated_at": "2024-02-09T08:16:05.582358",
+        "name": "My_First_Model",
+        "my_number": 89,
+        "__class__": "BaseModel"
+    },
+    "BaseModel.cce6c6d1-9d61-42d5-88ea-4d2ff8a91fe1": {
+        "id": "cce6c6d1-9d61-42d5-88ea-4d2ff8a91fe1",
+        "created_at": "2024-02-09T08:16:29.879097",
+        "updated_at": "2024-02-09T08:16:29.879128",
+        "name": "My_First_Model",
+        "my_number": 89,
+        "__class__": "BaseModel"
     }
 }
