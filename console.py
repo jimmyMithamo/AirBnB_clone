@@ -75,11 +75,22 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
         else:
             print("** no instance found **")
-        
+
     def do_all(self, arg):
         args = arg.split()
 
         obj_list =[]
+
+        """if args[0] in storage.class_mapping:
+            class_name = args[0]
+            for obj in storage.all().values():
+                if isinstance(obj, globals()[class_name]):
+                    obj_list.append(str(obj))
+        else:"""
+
+
+
+
 
         if len(args) == 0:
             for obj in storage.all().values():
