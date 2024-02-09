@@ -1,8 +1,9 @@
 from models.base_model import BaseModel
- 
+
+
 class Place(BaseModel):
     def __init__(self, *args, **kwargs):
-        #initializes user class
+        # initializes user class
         super().__init__(*args, **kwargs)
         self.city_id = ''
         self.user_id = ''
@@ -15,4 +16,3 @@ class Place(BaseModel):
         self.latitude = 0.0
         self.longitude = 0.0
         self.amenity_ids = []
-
