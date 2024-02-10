@@ -150,7 +150,7 @@ class HBNBCommand(cmd.Cmd):
                             attribute_name, attr_type(value))
                     storage.save()
                 else:
-                        print("** attribute {} does"
+                       print("** attribute {} does"
                         "not exist **".format(attribute_name))
             else:
                 print("** key not found **")
