@@ -16,6 +16,19 @@ from models.review import Review
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb)"
 
+    
+    def postcmd(self, stop, line):
+        # Check if the command matches the pattern <class name>.all()
+        parts = line.split('.')
+        if len(parts) == 2 and parts[1] == 'all()':
+            class_name = parts[0]
+            if class_name in globals():
+                self.do_all(class_name)
+            
+            
+        return stop
+    
+
     def do_quit(self, args):
         """Quit command to exit the programe
         """
@@ -39,6 +52,7 @@ class HBNBCommand(cmd.Cmd):
                 new_instance = eval(arg)()
                 new_instance.save()
                 print(new_instance.id)
+                storage.save()
             except NameError:
                 print("** class doesn't exist **")
 
@@ -85,33 +99,26 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         args = arg.split()
-
         obj_list = []
-
-        """if args[0] in storage.class_mapping:
-            class_name = args[0]
-            for obj in storage.all().values():
-                if isinstance(obj, globals()[class_name]):
-                    obj_list.append(str(obj))
-        else:"""
-
-
-
-
-
         if len(args) == 0:
             for obj in storage.all().values():
                 obj_list.append(str(obj))
-        elif args[0] in globals():
+
+        elif len(args) == 1:
             class_name = args[0]
             for key, obj in storage.all().items():
-                if key.startswith(class_name + "."):
-                    obj_list.append(str(obj))
-        else:
-            print("** class doesn't exist **")
-            return
+                    if class_name in key:
+                        obj_list.append(str(obj))
+            print(obj_list)            
+            
+                
+                
+            
 
-        print(obj_list)
+        
+
+
+
 
     def do_update(self, arg):
         args = arg.split()

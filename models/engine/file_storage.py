@@ -53,18 +53,18 @@ class FileStorage:
             except json.decoder.JSONDecodeError:
                 pass
 
-    
-            for key, value in data.items():
+ 
+            """for key, value in data.items():
                 class_name, obj_id = key.split('.')
-                """try:
+                try:
                     class_obj = globals()[class_name]
                     obj = class_obj(**value)
                     self.__objects[key] = obj
                 except NameError:
                     pass
-                """
+                """"""
                 if class_name in globals():
                     class_obj = self.__class_mapping[class_name]
                     obj = class_obj(**value)
-                    self.__objects[key] = obj
+                    self.__objects[key] = obj"""
                    
