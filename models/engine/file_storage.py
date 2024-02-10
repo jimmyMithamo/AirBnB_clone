@@ -8,6 +8,7 @@ from models.place import Place
 from models.review import Review
 from models.base_model import BaseModel
 
+
 class FileStorage:
     __file_path = "file.json"
     __objects = {}
@@ -37,9 +38,8 @@ class FileStorage:
         for key, obj in self.__objects.items():
             serialized_objects[key] = obj.to_dict()
 
-        
-        with open (self.__file_path, 'w', encoding = 'utf-8') as file:
-            json.dump(serialized_objects, file, indent = 4)
+        with open(self.__file_path, 'w', encoding='utf-8') as file:
+            json.dump(serialized_objects, file, indent=4)
 
     def reload(self):
         """
@@ -48,12 +48,11 @@ class FileStorage:
         """
         if os.path.exists(self.__file_path):
             try:
-                with open (self.__file_path, 'r', encoding='utf-8') as file:
+                with open(self.__file_path, 'r', encoding='utf-8') as file:
                     data = json.load(file)
             except json.decoder.JSONDecodeError:
                 pass
 
- 
             """for key, value in data.items():
                 class_name, obj_id = key.split('.')
                 try:
@@ -67,4 +66,3 @@ class FileStorage:
                     class_obj = self.__class_mapping[class_name]
                     obj = class_obj(**value)
                     self.__objects[key] = obj"""
-                   
