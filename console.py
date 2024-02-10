@@ -16,7 +16,6 @@ from models.review import Review
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb)"
 
-    
     def postcmd(self, stop, line):
         # Check if the command matches the pattern <class name>.all()
         parts = line.split('.')
@@ -24,10 +23,7 @@ class HBNBCommand(cmd.Cmd):
             class_name = parts[0]
             if class_name in globals():
                 self.do_all(class_name)
-            
-            
         return stop
-    
 
     def do_quit(self, args):
         """Quit command to exit the programe
@@ -43,8 +39,11 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, arg):
-        """Creates a new instance of BaseModel, saves it (to the JSON file)
-        and prints the id"""
+        """
+        Creates a new instance of BaseModel,
+        saves it (to the JSON file)
+        and prints the id
+        """
         if not arg:
             print("** class name missing **")
         else:
@@ -57,7 +56,6 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
 
     def do_show(self, arg):
-
         args = arg.split()
 
         if len(args) == 0:
@@ -107,22 +105,12 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 1:
             class_name = args[0]
             for key, obj in storage.all().items():
-                    if class_name in key:
-                        obj_list.append(str(obj))
-            print(obj_list)            
-            
-                
-                
-            
-
-        
-
-
-
+                if class_name in key:
+                    obj_list.append(str(obj))
+            print(obj_list)
 
     def do_update(self, arg):
         args = arg.split()
-
         if len(args) == 0:
             print("** class name missing **")
             return
@@ -153,16 +141,17 @@ class HBNBCommand(cmd.Cmd):
         try:
             if key in storage.all():
                 instance = storage.all()[key]
-
                 if hasattr(instance, attribute_name):
                     # check attribute type in the storage
                     attr_type = type(getattr(instance, attribute_name))
 
                     # update the value
-                    setattr(storage.all()[key], attribute_name, attr_type(value))
+                    setattr(storage.all()[key],
+                            attribute_name, attr_type(value))
                     storage.save()
                 else:
-                    print("** attribute {} does not exist **".format(attribute_name))
+                        print("** attribute {} does"
+                        "not exist **".format(attribute_name))
             else:
                 print("** key not found **")
 
@@ -171,5 +160,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-
     HBNBCommand().cmdloop()
