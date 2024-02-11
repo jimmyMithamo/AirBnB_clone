@@ -2,8 +2,6 @@
 import uuid
 import models
 from datetime import datetime
-from models import storage
-from uuid import uuid4
 
 
 class BaseModel:
@@ -23,7 +21,8 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            storage.new(self)
+
+            models.storage.new(self)
             """
             register the instance in the __objects
             """
