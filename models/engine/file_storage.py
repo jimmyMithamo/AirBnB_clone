@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""create"""
 import os
 import json
 from models.user import User
@@ -46,8 +47,8 @@ class FileStorage:
         """
         deserializes the JSON file to __objects (only if the JSON file
         (__file_path) exists ; otherwise, do nothing.
-        """
-        if os.path.exists(self.__file_path):
+
+         if os.path.exists(self.__file_path):
            with open(self.__file_path, 'r', encoding='utf-8') as file:
               try:
                   serialized_objects = json.load(file)
@@ -63,15 +64,13 @@ class FileStorage:
                   pass
                   """" print"""
 
-            """for key, value in data.items():
-                class_name, obj_id = key.split('.')
+    """class_name, obj_id = key.split('.')
                 try:
                     class_obj = globals()[class_name]
                     obj = class_obj(**value)
                     self.__objects[key] = obj
                 except NameError:
                     pass
-                """"""
                 if class_name in globals():
                     class_obj = self.__class_mapping[class_name]
                     obj = class_obj(**value)
