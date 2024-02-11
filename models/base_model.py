@@ -2,11 +2,12 @@
 import uuid
 import models
 from datetime import datetime
+from models import storage
+from uuid import uuid4
 
 
 class BaseModel:
     def __init__(self, *args, **kwargs):
-        from models import storage
         if kwargs:
             for key, value in kwargs.items():
                 if key == '__class__':
