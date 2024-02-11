@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import os
 import json
 from models.user import User
@@ -47,11 +48,20 @@ class FileStorage:
         (__file_path) exists ; otherwise, do nothing.
         """
         if os.path.exists(self.__file_path):
-            try:
-                with open(self.__file_path, 'r', encoding='utf-8') as file:
-                    data = json.load(file)
-            except json.decoder.JSONDecodeError:
-                pass
+           with open(self.__file_path, 'r', encoding='utf-8') as file:
+              try:
+                  serialized_objects = json.load(file)
+                  for key, value in serialized_objects.items():
+                      class_name, obj_id = key.split('.')
+
+                      cls = globals()[class_name]
+
+                      instance = cls.load_from_dict(value)
+
+                      self.__objects[key] = instance
+              except FileNotFoundError:
+                  pass
+                  """" print"""
 
             """for key, value in data.items():
                 class_name, obj_id = key.split('.')
