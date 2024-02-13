@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "User.2af5bb17-eca0-4fbf-83a8-42a25d80a5de": {
         "id": "2af5bb17-eca0-4fbf-83a8-42a25d80a5de",
         "created_at": "2024-02-13T16:50:36.926037",
@@ -8,5 +9,14 @@
         "first_name": null,
         "last_name": null,
         "__class__": "User"
+=======
+    "BaseModel.8b5dbd4c-15d3-4160-a35e-96ae720bb8c0": {
+        "id": "8b5dbd4c-15d3-4160-a35e-96ae720bb8c0",
+        "created_at": "2024-02-11T05:04:09.078855",
+        "updated_at": "2024-02-11T05:04:09.078954",
+        "name": "My First Model",
+        "my_number": 89,
+        "__class__": "BaseModel"
+>>>>>>> ad7ccfe493cc935a1c2ad9614862f34412f6d980
     }
 }
