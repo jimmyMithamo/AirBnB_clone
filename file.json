@@ -1,22 +1,14 @@
 {
-<<<<<<< HEAD
-    "User.2af5bb17-eca0-4fbf-83a8-42a25d80a5de": {
-        "id": "2af5bb17-eca0-4fbf-83a8-42a25d80a5de",
-        "created_at": "2024-02-13T16:50:36.926037",
-        "updated_at": "2024-02-13T16:50:36.926105",
-        "email": null,
-        "password": null,
-        "first_name": null,
-        "last_name": null,
+    "User.48ad0476-de26-4d34-ab21-59f133f4979b": {
+        "id": "48ad0476-de26-4d34-ab21-59f133f4979b",
+        "created_at": "2024-02-13T22:40:05.803807",
+        "updated_at": "2024-02-13T22:40:05.803825",
         "__class__": "User"
-=======
-    "BaseModel.8b5dbd4c-15d3-4160-a35e-96ae720bb8c0": {
-        "id": "8b5dbd4c-15d3-4160-a35e-96ae720bb8c0",
-        "created_at": "2024-02-11T05:04:09.078855",
-        "updated_at": "2024-02-11T05:04:09.078954",
-        "name": "My First Model",
-        "my_number": 89,
+    },
+    "BaseModel.89c29031-f9f4-425f-b48f-ceb6d35332fb": {
+        "id": "89c29031-f9f4-425f-b48f-ceb6d35332fb",
+        "created_at": "2024-02-13T22:40:33.862358",
+        "updated_at": "2024-02-13T22:40:33.862389",
         "__class__": "BaseModel"
->>>>>>> ad7ccfe493cc935a1c2ad9614862f34412f6d980
     }
 }

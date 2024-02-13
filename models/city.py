@@ -1,10 +1,13 @@
 #!/usr/bin/python3
+"""defines the city class"""
 from models.base_model import BaseModel
 
 
 class City(BaseModel):
-    def __init__(self, *args, **kwargs):
-        # initializes user class
-        super().__init__(*args, **kwargs)
-        self.state_id = ''
-        self.name = ''
+    """represents the city.
+    Attributes:
+    state_id(str): state id
+    name (str): name of city
+    """
+    state_id = ""
+    name = ""
